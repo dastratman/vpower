@@ -10,7 +10,7 @@ from ant.plus.heartrate import *
 
 from usb.core import find
 
-from PowerMeterTx import PowerMeterTx
+from sensors.PowerMeterTx import PowerMeterTx
 from config import DEBUG, LOG, NETKEY, POWER_SENSOR_ID
 from functions import interp
 
@@ -29,7 +29,7 @@ stopped = True
 
 xp = [0]
 yp = [0]
-zones_file = '%s/zones.csv' % SCRIPT_DIR
+zones_file = '%s/curves/zones.csv' % SCRIPT_DIR
 if os.path.isfile(zones_file):
     with open(zones_file, 'r') as fd:
         reader = csv.reader(fd)

@@ -42,7 +42,7 @@ Warning: the [Cycplus ANT Stick](https://tacxfaqx.com/knowledge-base/cycplus-ant
 
 * Download the [standalone executable](https://github.com/oldnapalm/vpower/releases/latest)
 * Configure speed sensor, power calculator and wheel circumference in **vpower.cfg**
-  * You can leave `speed_sensor_id` as zero if there's only one sensor around
+  * You can leave `sensor_id` as zero if there's only one sensor around
   * If using `LinearInterpolationPowerCalculator` set speed and power values in the file [curve.csv](https://github.com/oldnapalm/vpower/blob/master/curve.csv)
 * Install the libusb-win32 driver for the ANT+ device (if not already installed), it can be easily done using [Zadig](https://zadig.akeo.ie/)
   * Options - List All Devices

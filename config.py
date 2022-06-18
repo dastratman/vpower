@@ -2,15 +2,17 @@ from configparser import ConfigParser
 
 import os, sys
 from ant.core import log
-from BtAtsPowerCalculator import BtAtsPowerCalculator
-from CycleOpsFluid2PowerCalculator import CycleOpsFluid2PowerCalculator
-from EliteNovoForceS3PowerCalculator import EliteNovoForceS3PowerCalculator
-from EliteQuboFluidPowerCalculator import EliteQuboFluidPowerCalculator
-from GenericFluidPowerCalculator import GenericFluidPowerCalculator
-from GenericMagneticPowerCalculator import GenericMagneticPowerCalculator
-from KurtKineticPowerCalculator import KurtKineticPowerCalculator
-from LinearInterpolationPowerCalculator import LinearInterpolationPowerCalculator
-from TacxBlueMotionPowerCalculator import TacxBlueMotionPowerCalculator
+
+from calculators.BtAtsPowerCalculator import BtAtsPowerCalculator
+from calculators.CycleOpsFluid2PowerCalculator import CycleOpsFluid2PowerCalculator
+from calculators.EliteNovoForceS3PowerCalculator import EliteNovoForceS3PowerCalculator
+from calculators.EliteQuboFluidPowerCalculator import EliteQuboFluidPowerCalculator
+from calculators.GenericFluidPowerCalculator import GenericFluidPowerCalculator
+from calculators.GenericMagneticPowerCalculator import GenericMagneticPowerCalculator
+from calculators.KurtKineticPowerCalculator import KurtKineticPowerCalculator
+from calculators.LinearInterpolationPowerCalculator import LinearInterpolationPowerCalculator
+from calculators.TacxBlueMotionPowerCalculator import TacxBlueMotionPowerCalculator
+
 from constants import *
 import hashlib
 
@@ -50,10 +52,14 @@ if os.path.isfile(_CONFIG_FILENAME):
     if VPOWER_DEBUG: print('Get config items')
 
     # Type of sensor connected to the trainer
-    SENSOR_TYPE = CONFIG.getint(SECTION, 'speed_sensor_type')
+    SENSOR_TYPE = CONFIG.getint(SECTION, 'sensor_type')
 
-    # ANT+ ID of the above sensor
+    # ANT+ ID
+    SENSOR_ID = CONFIG.getint(SECTION, 'sensor_id')
     SPEED_SENSOR_ID = CONFIG.getint(SECTION, 'speed_sensor_id')
+
+    # ANT+ channel
+    SENSOR_CHANNEL = CONFIG.get(SECTION, 'sensor_channel')
 
     # Calculator for the model of turbo
     pc_class = globals()[CONFIG.get(SECTION, 'power_calculator')]
@@ -77,7 +83,7 @@ if os.path.isfile(_CONFIG_FILENAME):
 else:
     if VPOWER_DEBUG: print('Config file not found, using default values')
     SENSOR_TYPE = 123
-    SPEED_SENSOR_ID = 0
+    SENSOR_ID = 0
     POWER_CALCULATOR = LinearInterpolationPowerCalculator()
     POWER_CALCULATOR.air_density = 1.191
     POWER_CALCULATOR.air_density_update_secs = 10

@@ -1,0 +1,59 @@
+Metadata-Version: 1.1
+Name: ant
+Version: 0.1.1
+Summary: Python implementation of the ANT, ANT+, and ANT-FS protocols (http://www.thisisant.com/).
+Home-page: http://www.github.com/mch/python-ant
+Author: Martín Raúl Villalba
+Author-email: martin@martinvillalba.com
+License: MIT
+Description: ANT
+        ===
+        
+        Introduction
+        ------------
+        Python implementation of the ANT, ANT+, and ANT-FS protocols. For more
+        information about ANT, see http://www.thisisant.com/.
+        
+        Can be used to communicate with ANT nodes using an ANT stick (USB).
+        
+        This is a fork of the original project python-ant project, which can be found here:
+        https://github.com/mvillalba/python-ant
+        
+        
+        License
+        -------
+        Released under the MIT/X11 license. See LICENSE for the full text.
+        
+        
+        Install
+        -------
+        % python setup.py install
+        
+        
+        Develop
+        -------
+        See DEVELOP.md for details.
+        
+        A few quick notes for now:
+        
+        Run unit tests:
+        ```
+        python -m unittest discover
+        ```
+        
+        Run pylint:
+        ```
+        pylint src/ant
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Communications
+Classifier: Topic :: Communications :: File Sharing
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
